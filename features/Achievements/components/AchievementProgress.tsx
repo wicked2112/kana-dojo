@@ -73,14 +73,12 @@ interface AchievementCardProps {
   achievement: Achievement;
   isUnlocked: boolean;
   progress: number;
-  onClick: () => void;
 }
 
 const AchievementCard = ({
   achievement,
   isUnlocked,
-  progress,
-  onClick
+  progress
 }: AchievementCardProps) => {
   const config = rarityConfig[achievement.rarity];
   const RarityIcon = config.icon;
@@ -88,13 +86,12 @@ const AchievementCard = ({
   return (
     <div
       className={clsx(
-        'relative p-6 cursor-pointer',
+        'relative p-6',
         'rounded-2xl border-2 overflow-hidden',
         isUnlocked
           ? 'bg-[var(--card-color)] border-[var(--border-color)]'
           : 'bg-[var(--background-color)] border-[var(--border-color)]/50 opacity-80'
       )}
-      onClick={onClick}
     >
       {/* Gradient overlay for unlocked achievements */}
       {isUnlocked && (
@@ -298,12 +295,6 @@ const AchievementProgress = () => {
     setSelectedCategory(categoryId);
   };
 
-  const handleAchievementClick = (achievement: Achievement) => {
-    playClick();
-    // Could open achievement details modal here
-    console.log(achievement);
-  };
-
   // Get category stats
   const getCategoryStats = (categoryId: string) => {
     const categoryAchievements =
@@ -491,7 +482,6 @@ const AchievementProgress = () => {
                     achievement={achievement}
                     isUnlocked={isUnlocked}
                     progress={progress}
-                    onClick={() => handleAchievementClick(achievement)}
                   />
                 </motion.div>
               );
