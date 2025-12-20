@@ -8,6 +8,10 @@ const isDev = process.env.NODE_ENV !== 'production';
 const nextConfig: NextConfig = {
   // Performance optimizations
   reactStrictMode: false, // Disable in dev for faster startup (enable in production)
+  swcMinify: true, // Explicit SWC minification (default in Next.js 13+, but explicit is better)
+  compress: true, // Enable gzip/brotli compression
+  poweredByHeader: false, // Remove X-Powered-By header for security
+  generateEtags: true, // Generate ETags for better caching
 
   // Disable instrumentation in development
   // instrumentationHook: !isDev,

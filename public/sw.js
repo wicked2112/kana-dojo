@@ -8,6 +8,8 @@
 const AUDIO_CACHE_NAME = 'audio-cache-v1';
 
 // Audio files to precache (Opus format - widely supported)
+// Note: mariah-carey.opus (2.9MB) is NOT pre-cached to reduce initial load
+// It will be cached on-demand when the user selects the theme
 const AUDIO_FILES = [
   '/sounds/correct.opus',
   '/sounds/long.opus',
@@ -15,8 +17,7 @@ const AUDIO_FILES = [
   '/sounds/click/click4/click4_11.opus',
   '/sounds/click/click4/click4_22.opus',
   '/sounds/click/click4/click4_33.opus',
-  '/sounds/click/click4/click4_44.opus',
-  '/sounds/mariah-carey.opus'
+  '/sounds/click/click4/click4_44.opus'
 ];
 
 // Install event - precache audio files
