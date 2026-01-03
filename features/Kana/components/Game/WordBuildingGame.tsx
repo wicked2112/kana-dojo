@@ -444,12 +444,12 @@ const WordBuildingGame = ({
         className={clsx(
           'w-[100vw]',
           'border-t-2 border-[var(--border-color)] bg-[var(--card-color)]',
-          'absolute bottom-0 z-10 px-4 py-6 md:bottom-6 md:px-12 md:py-10',
-          'grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 md:gap-12'
+          'absolute bottom-0 z-10 px-6 py-6 md:bottom-6 md:px-12 md:py-10',
+          'flex flex-col items-center gap-6 md:flex-row md:items-center md:justify-center md:gap-0'
         )}
       >
-        {/* Left Column: Feedback (flex-1 effectively via grid) */}
-        <div className='flex justify-end overflow-hidden'>
+        {/* Left Container: 50% width on desktop, aligned right */}
+        <div className='flex w-full items-center justify-center md:w-1/2 md:justify-end md:pr-6'>
           <div
             className={clsx(
               'flex items-center gap-3 transition-all duration-500 md:gap-4',
@@ -483,35 +483,18 @@ const WordBuildingGame = ({
           </div>
         </div>
 
-        {/* Center Column: Button */}
-        <div className='flex justify-center'>
+        {/* Right Container: 50% width on desktop, aligned left */}
+        <div className='flex w-full items-center justify-center md:w-1/2 md:justify-start md:pl-6'>
           <ActionButton
             ref={buttonRef}
             borderBottomThickness={12}
             borderRadius='3xl'
-            className='w-auto min-w-[9rem] px-8 py-3 text-xl font-medium sm:min-w-[14rem] sm:px-16 sm:py-4 sm:text-2xl'
+            className='w-full max-w-[18rem] py-3 text-xl font-medium sm:py-4 sm:text-2xl md:w-auto md:min-w-[14rem] md:px-16'
             onClick={showContinue ? handleContinue : handleCheck}
             disabled={!canCheck && !showContinue}
           >
             <span>{showContinue ? 'continue' : 'check'}</span>
           </ActionButton>
-        </div>
-
-        {/* Right Column: Symmetric Mirror - invisible but balances the visual weight */}
-        <div className='invisible flex justify-start' aria-hidden='true'>
-          <div className='flex items-center gap-3 md:gap-4'>
-            <CircleCheck className='h-10 w-10 sm:h-12 sm:w-12' />
-            <div className='flex flex-col'>
-              <span className='text-lg font-bold sm:text-2xl'>
-                {bottomBarState === 'correct'
-                  ? 'Nicely done!'
-                  : 'Correct solution:'}
-              </span>
-              <span className='text-sm font-medium sm:text-lg'>
-                {wordData.answerChars.join('')}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
 
