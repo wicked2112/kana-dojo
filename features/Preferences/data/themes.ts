@@ -253,6 +253,13 @@ const baseThemeSets: BaseThemeGroup[] = [
     icon: Moon,
     themes: [
       {
+        id: 'sushi-counter',
+        backgroundColor: 'oklch(23.0% 0.028 70.0 / 1)',
+        mainColor: 'oklch(70.0% 0.145 20.0 / 1)',
+        secondaryColor: 'oklch(68.0% 0.095 75.0 / 1)',
+      },
+
+      {
         id: 'samurai-steel',
         backgroundColor: 'oklch(18.0% 0.022 250.0 / 1)',
         mainColor: 'oklch(80.0% 0.055 240.0 / 1)',
@@ -1113,6 +1120,13 @@ const baseThemeSets: BaseThemeGroup[] = [
         mainColor: 'oklch(70.0% 0.145 150.0 / 1)',
         secondaryColor: 'oklch(78.0% 0.095 140.0 / 1)',
       },
+      {
+        id: 'umbrella-rain',
+        backgroundColor: 'oklch(22.0% 0.018 250.0 / 1)',
+        mainColor: 'oklch(70.0% 0.175 225.0 / 1)',
+        secondaryColor: 'oklch(75.0% 0.145 350.0 / 1)',
+      },
+
     ],
   },
   {
